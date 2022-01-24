@@ -205,7 +205,7 @@ make_carbon_bilan <- function(type){
     if (type==''){
       cexp_data <- read.table('carbon_flux_Henson_2019.txt', sep='\t', header = T)
     } else if (type=='_guidi'){
-      cexp_data <- read.table('hydrofull_for_margaux.txt', header = T, sep='\t')
+      cexp_data <- read.table('guidi_carbon_export.txt', header = T, sep='\t')
       colnames(cexp_data)[2] <- 'Latitude'
       colnames(cexp_data)[3] <- 'Longitude'
       colnames(cexp_data)[67] <- 'Export.flux'
