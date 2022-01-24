@@ -1,0 +1,214 @@
+#!/bin/bash
+# supp 2
+cp barplot_auc_cross_val.pdf paper_figures_v3/supp_fig_1a.pdf
+cp valid_vs_non_valid_niches_SUR.pdf paper_figures_v3/supp_fig_1b.pdf
+cp valid_vs_non_valid_niches_DCM.pdf paper_figures_v3/supp_fig_1c.pdf
+cp legend_valid_vs_non_valid_niches.pdf paper_figures_v3/supp_fig_1_legend.pdf
+cp legend_valid_vs_non_valid_niches1.pdf paper_figures_v3/supp_fig_1_legend1.pdf
+
+# supp 2
+cp 180-2000_5.pdf paper_figures_v3/supp_fig_2a.pdf
+cp 180-2000_8.pdf paper_figures_v3/supp_fig_2b.pdf
+cp projection_model-mean_180-2000_metacommunity_5_woa.pdf paper_figures_v3/supp_fig_2c.pdf
+cp projection_model-mean_180-2000_metacommunity_8_woa.pdf paper_figures_v3/supp_fig_2d.pdf
+
+# supp 3
+cp rgb_woa_phate_1deg_prob_phate_4_clusts.pdf paper_figures_v3/supp_fig_3a.pdf
+cp rgb_woa_phate_1deg_prob_phate_7_clusts_antarctic_fronts.pdf paper_figures_v3/supp_fig_3b.pdf
+
+# supp 4
+cp correlation_sdm_models_1.pdf paper_figures_v3/supp_fig_4a.pdf
+cp correlation_sdm_models_model-mean_woa_1.pdf paper_figures_v3/supp_fig_4b.pdf
+cp correlation_sdm_models_model-mean_2006_1.pdf paper_figures_v3/supp_fig_4c.pdf
+cp correlation_sdm_models_model-mean_2090_1.pdf paper_figures_v3/supp_fig_4d.pdf
+
+# supp 5
+cp projection_model-mean_180-2000_metacommunity_5_delta_sdm_model_woa.pdf paper_figures_v3/supp_fig_5.pdf
+
+# supp 6
+cp projection_model-mean_180-2000_metacommunities_woa_contour_alpha_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_6a.pdf
+cp projection_model-mean_180-2000_metacommunities_woa_contour_alpha_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_6b.pdf
+cp projection_model-mean_180-2000_metacommunities_woa_contour_alpha_McKingley.pdf paper_figures_v3/supp_fig_6c.pdf
+cp projection_model-mean_20-180_metacommunities_woa_contour_alpha_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_6d.pdf
+cp projection_model-mean_20-180_metacommunities_woa_contour_alpha_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_6e.pdf
+cp projection_model-mean_20-180_metacommunities_woa_contour_alpha_McKingley.pdf paper_figures_v3/supp_fig_6f.pdf
+cp projection_model-mean_5-20_metacommunities_woa_contour_alpha_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_6g.pdf
+cp projection_model-mean_5-20_metacommunities_woa_contour_alpha_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_6h.pdf
+cp projection_model-mean_5-20_metacommunities_woa_contour_alpha_McKingley.pdf paper_figures_v3/supp_fig_6i.pdf
+cp projection_model-mean_0.8-5_metacommunities_woa_contour_alpha_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_6j.pdf
+cp projection_model-mean_0.8-5_metacommunities_woa_contour_alpha_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_6k.pdf
+cp projection_model-mean_0.8-5_metacommunities_woa_contour_alpha_McKingley.pdf paper_figures_v3/supp_fig_6l.pdf
+cp projection_model-mean_0.22-3_metacommunities_woa_contour_alpha_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_6m.pdf
+cp projection_model-mean_0.22-3_metacommunities_woa_contour_alpha_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_6n.pdf
+cp projection_model-mean_0.22-3_metacommunities_woa_contour_alpha_McKingley.pdf paper_figures_v3/supp_fig_6o.pdf
+cp projection_model-mean_0-0.2_metacommunities_woa_contour_alpha_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_6p.pdf
+cp projection_model-mean_0-0.2_metacommunities_woa_contour_alpha_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_6q.pdf
+cp projection_model-mean_0-0.2_metacommunities_woa_contour_alpha_McKingley.pdf paper_figures_v3/supp_fig_6r.pdf
+
+# supp 7
+cp rgb_woa_phate_1deg_prob_phate_4_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_7a.pdf
+cp rgb_woa_phate_1deg_prob_phate_4_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_7b.pdf
+cp rgb_woa_phate_1deg_prob_phate_4_McKingley.pdf paper_figures_v3/supp_fig_7c.pdf
+cp rgb_woa_phate_1deg_prob_phate_7_Reygondeau_BGCP.pdf paper_figures_v3/supp_fig_7d.pdf
+cp rgb_woa_phate_1deg_prob_phate_7_Reygondeau_BIOME.pdf paper_figures_v3/supp_fig_7e.pdf
+cp rgb_woa_phate_1deg_prob_phate_7_McKingley.pdf paper_figures_v3/supp_fig_7f.pdf
+
+# supp 8
+cp randIndex_biogeographies_1.pdf paper_figures_v3/supp_fig_8.pdf
+
+# supp 9
+cp taylor_diagram_all.pdf paper_figures_v3/supp_fig_9.pdf
+cp the_taylor_legend1.pdf paper_figures_v3/supp_fig_9_legend1.pdf
+cp the_taylor_legend.pdf paper_figures_v3/supp_fig_9_legend.pdf
+
+# supp 10
+cp model-mean_T_2090_2006_oor.pdf paper_figures_v3/supp_fig_10a.pdf
+cp model-mean_Si_2090_2006_oor.pdf paper_figures_v3/supp_fig_10b.pdf
+cp model-mean_NO3_2090_2006_oor.pdf paper_figures_v3/supp_fig_10c.pdf
+cp model-mean_Fe_2090_2006_oor.pdf paper_figures_v3/supp_fig_10d.pdf
+cp model-mean_Phos_2090_2006_oor.pdf paper_figures_v3/supp_fig_10e.pdf
+cp model-mean_Sal_2090_2006_oor.pdf paper_figures_v3/supp_fig_10f.pdf
+cp model-mean_SI_NO3_2090_2006_oor.pdf paper_figures_v3/supp_fig_10g.pdf
+
+# supp 11
+cp shifts_North_A_fraction.pdf paper_figures_v3/supp_fig_11a.pdf
+cp shifts_North_P_fraction.pdf paper_figures_v3/supp_fig_11b.pdf
+cp shifts_South_A_fraction.pdf paper_figures_v3/supp_fig_11c.pdf
+cp shifts_South_P_fraction.pdf paper_figures_v3/supp_fig_11d.pdf
+cp shifts_Indian_fraction.pdf paper_figures_v3/supp_fig_11e.pdf
+
+# supp 12
+cp shifts_distributions.pdf paper_figures_v3/supp_fig_12b.pdf
+cp shifts_map.pdf paper_figures_v3/supp_fig_12a.pdf
+
+# supp 13
+cp rgb_2006_phate_1deg_prob_4_clusts.pdf paper_figures_v3/supp_fig_13a.pdf
+cp rgb_2090_phate_1deg_prob_4_clusts.pdf paper_figures_v3/supp_fig_13b.pdf
+
+# supp 14
+cp alluvial_plot_areas_180-2000.pdf paper_figures_v3/supp_fig_14a.pdf
+cp alluvial_plot_areas_20-180.pdf paper_figures_v3/supp_fig_14b.pdf
+cp alluvial_plot_areas_5-20.pdf paper_figures_v3/supp_fig_14c.pdf
+cp alluvial_plot_areas_0.8-5.pdf paper_figures_v3/supp_fig_14d.pdf
+cp alluvial_plot_areas_0.22-3.pdf paper_figures_v3/supp_fig_14e.pdf
+cp alluvial_plot_areas_0-0.2.pdf paper_figures_v3/supp_fig_14f.pdf
+
+# supp 15
+cp carbon_delta_flux_assemblages_mean_bc_all_extrapolated_eppley.pdf paper_figures_v3/supp_fig_15a.pdf
+cp carbon_delta_flux_assemblages_mean_bc_all_extrapolated_laws.pdf paper_figures_v3/supp_fig_15b.pdf
+
+# supp 16
+cp relative_influence_violin_dalex.pdf paper_figures_v3/supp_fig_16a_top.pdf 
+cp relative_influence_violin_cc.pdf paper_figures_v3/supp_fig_16b_top.pdf
+cp heatmap_relinf_niches_cc.pdf paper_figures_v3/supp_fig_16b_bottom.pdf
+cp heatmap_relinf_niches.pdf paper_figures_v3/supp_fig_16a_bottom.pdf
+
+# supp 17
+cp projection_model-mean_drivers_T_alone_dom_contour.pdf paper_figures_v3/supp_fig_17a.pdf
+cp projection_model-mean_drivers_Phos_alone_dom_contour.pdf paper_figures_v3/supp_fig_17b.pdf
+cp projection_model-mean_drivers_Sal_alone_dom_contour.pdf paper_figures_v3/supp_fig_17c.pdf
+cp projection_model-mean_drivers_Si_alone_dom_contour.pdf paper_figures_v3/supp_fig_17d.pdf
+cp projection_model-mean_drivers_Fe_alone_dom_contour.pdf paper_figures_v3/supp_fig_17e.pdf
+cp projection_model-mean_drivers_NO3_alone_dom_contour.pdf paper_figures_v3/supp_fig_17f.pdf
+cp projection_model-mean_drivers_SI_NO3_alone_dom_contour.pdf paper_figures_v3/supp_fig_17g.pdf
+
+# supp 18
+cp projection_model-mean_180-2000_metacommunity_5_2006-15.pdf paper_figures_v3/supp_fig_18a.pdf
+cp projection_model-mean_180-2000_metacommunity_5_2090-99.pdf paper_figures_v3/supp_fig_18b.pdf
+cp projection_model-mean_180-2000_metacommunity_5_shifts_delta_2090-2006.pdf paper_figures_v3/supp_fig_18c.pdf
+cp 180-2000_5_drivers_dom_contour.pdf paper_figures_v3/supp_fig_18d.pdf
+cp 0.8-5_9_drivers_dom_contour.pdf paper_figures_v3/supp_fig_18e.pdf
+
+#extended
+# ext 1
+
+# ext 2 
+ 
+# ext 3
+cp Neogen_violinplot_v2.pdf paper_figures_v3/ext_fig_3.pdf
+
+# ext 4
+cp projection_model-mean_180-2000_metacommunities_2006-15_contour_alpha_1.pdf paper_figures_v3/ext_fig_4a.pdf
+cp projection_model-mean_180-2000_metacommunities_2090-99_contour_alpha_1.pdf paper_figures_v3/ext_fig_4b.pdf
+cp projection_model-mean_5-20_metacommunities_2006-15_contour_alpha_1.pdf paper_figures_v3/ext_fig_4c.pdf
+cp projection_model-mean_5-20_metacommunities_2090-99_contour_alpha_1.pdf paper_figures_v3/ext_fig_4d.pdf
+cp projection_model-mean_0.22-3_metacommunities_2006-15_contour_alpha_1.pdf paper_figures_v3/ext_fig_4e.pdf
+cp projection_model-mean_0.22-3_metacommunities_2090-99_contour_alpha_1.pdf paper_figures_v3/ext_fig_4f.pdf
+cp projection_model-mean_0-0.2_metacommunities_2006-15_contour_alpha_1.pdf paper_figures_v3/ext_fig_4g.pdf
+cp projection_model-mean_0-0.2_metacommunities_2090-99_contour_alpha_1.pdf paper_figures_v3/ext_fig_4h.pdf
+
+# ext 5
+cp projection_model-mean_metacommunities_bray-curtis_high_fish_dom_2006-2090.pdf paper_figures_v3/ext_fig_5a.pdf
+cp projection_model-mean_metacommunities_bray-curtis_eez_dom_2006-2090.pdf paper_figures_v3/ext_fig_5b.pdf
+cp changes_network_no_cut_off_fish.pdf paper_figures_v3/ext_fig_5c.pdf
+cp changes_network_no_cut_off_eez.pdf paper_figures_v3/ext_fig_5d.pdf
+cp changes_network_cut_off_0_16_fish.pdf paper_figures_v3/ext_fig_5e.pdf
+cp changes_network_cut_off_0_16_fish.pdf paper_figures_v3/ext_fig_5f.pdf
+
+# ext 6
+cp dominant_community_changes_trans_180-2000.pdf paper_figures_v3/ext_fig_6a_top.pdf
+cp circos_transitions_hexanauplia_180-2000.pdf paper_figures_v3/ext_fig_6a_bottom.pdf
+cp dominant_community_changes_trans_5-20.pdf paper_figures_v3/ext_fig_6b_top.pdf
+cp circos_transitions_hexanauplia_5-20.pdf paper_figures_v3/ext_fig_6b_bottom.pdf
+
+# ext 7
+cp dominant_community_changes_trans_180-2000.pdf paper_figures_v3/ext_fig_7a_top.pdf
+cp circos_transitions_diaz_180-2000.pdf paper_figures_v3/ext_fig_7a_bottom.pdf
+cp dominant_community_changes_trans_20-180.pdf paper_figures_v3/ext_fig_7b_top.pdf
+cp circos_transitions_diaz_20-180.pdf paper_figures_v3/ext_fig_7b_bottom.pdf
+cp dominant_community_changes_trans_5-20.pdf paper_figures_v3/ext_fig_7c_top.pdf
+cp circos_transitions_diaz_5-20.pdf paper_figures_v3/ext_fig_7c_bottom.pdf
+cp dominant_community_changes_trans_0.22-3.pdf paper_figures_v3/ext_fig_7d_top.pdf
+cp circos_transitions_diaz_0.22-3.pdf paper_figures_v3/ext_fig_7d_bottom.pdf
+
+# ext 8
+cp circos_transitions_phot_180-2000.pdf paper_figures_v3/ext_fig_8a.pdf
+cp circos_transitions_phot_20-180.pdf paper_figures_v3/ext_fig_8b.pdf
+cp circos_transitions_phot_5-20.pdf paper_figures_v3/ext_fig_8c.pdf
+cp circos_transitions_phot_0.8-5.pdf paper_figures_v3/ext_fig_8d.pdf
+cp circos_transitions_phot_0.22-3.pdf paper_figures_v3/ext_fig_8e.pdf
+
+# ext 9
+cp carbon_delta_flux_assemblages_mean_bc_diatoms_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9a_top.pdf
+cp carbon_delta_flux_assemblages_mean_bc_diatoms_big_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9a_bot.pdf
+cp carbon_delta_flux_assemblages_mean_bc_cyanobacteria_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9b_top.pdf
+cp carbon_delta_flux_assemblages_mean_bc_cyanobacteria_big_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9b_bot.pdf
+cp carbon_delta_flux_assemblages_mean_bc_algae_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9c_top.pdf
+cp carbon_delta_flux_assemblages_mean_bc_algae_big_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9c_bot.pdf
+cp carbon_delta_flux_assemblages_mean_bc_cyano-diazotrophs_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9d.pdf
+cp carbon_delta_flux_assemblages_mean_bc_copepods_all_extrapolated_henson.pdf paper_figures_v3/ext_fig_9e.pdf
+
+# ext 10
+cp associations_carbon_export_7_subtropical_north_0.05.pdf paper_figures_v3/ext_fig_10b.pdf
+cp associations_carbon_export_7_subtropical_south_0.05.pdf paper_figures_v3/ext_fig_10c.pdf
+cp associations_carbon_export_7_equatorial_0.05.pdf paper_figures_v3/ext_fig_10d.pdf
+
+# Main
+# fig 2
+cp projection_model-mean_180-2000_metacommunities_woa_contour_alpha_1.pdf paper_figures_v3/figure_2a.pdf
+cp projection_model-mean_20-180_metacommunities_woa_contour_alpha_1.pdf paper_figures_v3/figure_2b.pdf
+cp projection_model-mean_5-20_metacommunities_woa_contour_alpha_1.pdf paper_figures_v3/figure_2c.pdf
+cp projection_model-mean_0.8-5_metacommunities_woa_contour_alpha_1.pdf paper_figures_v3/figure_2d.pdf
+cp projection_model-mean_0.22-3_metacommunities_woa_contour_alpha_1.pdf paper_figures_v3/figure_2e.pdf
+cp projection_model-mean_0-0.2_metacommunities_woa_contour_alpha_1.pdf paper_figures_v3/figure_2f.pdf
+
+# fig 3
+cp projection_model-mean_20-180_metacommunities_2006-15_contour_alpha_1.pdf paper_figures_v3/figure_3a.pdf
+cp projection_model-mean_20-180_metacommunities_2090-99_contour_alpha_1.pdf paper_figures_v3/figure_3c.pdf
+cp projection_model-mean_0.8-5_metacommunities_2006-15_contour_alpha_1.pdf paper_figures_v3/figure_3b.pdf
+cp projection_model-mean_0.8-5_metacommunities_2090-99_contour_alpha_1.pdf paper_figures_v3/figure_3d.pdf
+cp dominant_community_changes_trans_20-180.pdf paper_figures_v3/figure_3e_top.pdf
+cp circos_transitions_hexanauplia_20-180.pdf paper_figures_v3/figure_3e_bottom.pdf
+cp dominant_community_changes_trans_0.8-5.pdf paper_figures_v3/figure_3f_top.pdf
+cp circos_transitions_diaz_0.8-5.pdf paper_figures_v3/figure_3f_bottom.pdf
+
+# fig 4
+cp projection_model-mean_metacommunities_bray-curtis_dom_2006-2090_set3.pdf paper_figures_v3/figure_4a.pdf
+cp changes_network_no_cut_off.pdf paper_figures_v3/figure_4b.pdf
+cp changes_network_cut_off_0_16.pdf paper_figures_v3/figure_4c.pdf
+cp carbon_delta_flux_assemblages_mean_bc_all_extrapolated_henson.pdf paper_figures_v3/figure_4d.pdf
+
+# fig 5
+cp projection_model-mean_drivers_max_alone_dom_contour_bcfilter.pdf paper_figures_v3/figure_5a.pdf
+cp projection_model-mean_drivers_max_alone_dom_contour_bcfilter_noT.pdf paper_figures_v3/figure_5b.pdf
+cp drivers_fraction.pdf paper_figures_v3/figure_5c.pdf
