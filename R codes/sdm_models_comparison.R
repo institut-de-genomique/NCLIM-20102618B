@@ -21,7 +21,7 @@ library('plotrix')
 library('randomForest')
 library('mgcv')
 library('nnet')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 df <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
 cambria <- readRDS('cambria.rds')
 fractions <- c('180-2000', '20-180', '43952','0.8-5','0.22-3', '0-0.2')

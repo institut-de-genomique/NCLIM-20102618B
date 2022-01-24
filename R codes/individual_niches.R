@@ -20,7 +20,7 @@ library('CDFt')
 library('randomForest')
 library('mgcv')
 library('nnet')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 source('axis_map0.R')
 source('hide_arctic.R')
 cambria <-readRDS('cambria.rds')

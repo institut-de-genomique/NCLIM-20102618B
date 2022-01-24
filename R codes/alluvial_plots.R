@@ -1,5 +1,5 @@
 library('ggalluvial')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 dom_com06 <- readRDS('dominant_communities_2006.rds')
 dom_com90 <- readRDS('dominant_communities_2090.rds')
 cambria <- readRDS('cambria.rds')

@@ -5,7 +5,7 @@ library('SDMTools')
 library('RColorBrewer')
 library('parallel')
 library('StatMeasures')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 
 cambria <- readRDS('cambria.rds')
 # Ind_fishery <- read.csv('CatchInd_2010_2014.csv', header = T)

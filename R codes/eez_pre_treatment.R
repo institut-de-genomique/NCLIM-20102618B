@@ -1,5 +1,5 @@
 library('rgdal')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 cambria <- readRDS('cambria.rds')
 shp='World_EEZ_v10_20180221/eez_boundaries_v10.shp'
 myshp = readOGR(shp, layer = basename(strsplit(shp, "\\.")[[1]])[1])

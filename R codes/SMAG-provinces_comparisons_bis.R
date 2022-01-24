@@ -1,7 +1,7 @@
 library('gplots')
 #library('readxl')
 library('matlab')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5")
+
 cambria <- readRDS('cambria.rds')
 type <- commandArgs(trailingOnly = T)[1]
 version <- commandArgs(trailingOnly = T)[2]

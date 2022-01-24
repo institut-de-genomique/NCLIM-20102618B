@@ -7,7 +7,7 @@ library('SDMTools')
 library('stringr')
 library('ggplot2')
 library('reshape2')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 
 df <- read_xlsx('Genocenoses_env_parameters_all_tara.xlsx')
 

@@ -5,7 +5,7 @@ library('mgcv')
 library('nnet')
 library('RColorBrewer')
 library('ingredients')
-#setwd("~/MobaXterm/home/final_model_2")
+
 source('vioplot.R')
 cambria <- readRDS('cambria.rds')
 

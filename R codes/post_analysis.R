@@ -17,7 +17,7 @@ library('maptools')
 library('SDMTools')
 library('RColorBrewer')
 library('ncdf4')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 source('vioplot.R')
 source('hide_arctic.R')
 source('axis_map0.R')

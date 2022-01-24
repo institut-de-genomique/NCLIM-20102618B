@@ -2,7 +2,7 @@ library('vegan')
 library('parallel')
 library('maptools')
 library('ncdf4')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 cambria <- readRDS('cambria.rds')
 BGCP_shp <- readShapeSpatial('longhurst_v4_2010/Longhurst_world_v4_2010.shp')
 png("longhurst.png", width=10,height=4.065, res=200, units = 'in')

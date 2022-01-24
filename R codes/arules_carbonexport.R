@@ -2,7 +2,7 @@ library('arules')
 library('gplots')
 library('RColorBrewer')
 #library('SDMTools')
-#setwd("~/Association_rules_carbonexport")
+
 nom <- commandArgs(trailingOnly = T)[1]
 supp <- commandArgs(trailingOnly = T)[2]
 launch <- commandArgs(trailingOnly = T)[3]

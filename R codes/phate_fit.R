@@ -7,7 +7,7 @@ library('RColorBrewer')
 library('parallel')
 library('phateR')
 library('scatterplot3d')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 source('axis_map.R')
 cambria <- readRDS('cambria.rds')
 type = commandArgs(trailingOnly = T)[1]

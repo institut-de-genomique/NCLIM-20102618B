@@ -20,7 +20,7 @@ library('isofor')
 library('parallel')
 library('png')
 library('grid')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 source('vioplot.R')
 source('hide_arctic.R')
 source('axis_map0.R')

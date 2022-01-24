@@ -25,7 +25,7 @@ library('png')
 library('grid')
 library('matlab')
 library('shape')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 cambria <- readRDS('cambria.rds')
 source('axis_map0.R')
 source('hide_arctic.R')

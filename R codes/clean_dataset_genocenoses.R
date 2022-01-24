@@ -1,6 +1,6 @@
 library("readxl")
 library('randomForest')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 df <- read_excel("Genocenoses_env_parameters_all_woa.xlsx")
 fractions <- c('180-2000', '20-180', '43952','0.8-5','0.22-3', '0-0.2')
 df$id <- paste(df$Fraction, df$Genocenose, sep='_')

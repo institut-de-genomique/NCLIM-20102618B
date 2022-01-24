@@ -16,7 +16,7 @@ library('RColorBrewer')
 library('ncdf4')
 library("CDFt")
 library('parallel')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 df <- readRDS("Genocenoses_env_parameters_woa_scaled.rds")
 
 best_models <- read.table('best_selected_models.txt', header = T)

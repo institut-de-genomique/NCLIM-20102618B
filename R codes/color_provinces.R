@@ -1,5 +1,5 @@
 library('RColorBrewer')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5")
+
 cambria <- readRDS('cambria.rds')
 CA <- read.table('Projections/covered_areas_all.txt')
 colnames(CA) <- c("Metacommunity" , "Fraction", 

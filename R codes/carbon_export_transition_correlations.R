@@ -1,7 +1,7 @@
 library('FactoMineR')
 library('RColorBrewer')
 library('gplots')
-setwd('/env/cns/scratch_TaraOcean/Niches_models_Neogen/final_model_5/')
+
 trans <- readRDS('transitions.rds')
 longi<-seq(0.5,359.5,1)
 longi[181:360] =as.numeric(longi[181:360])-360

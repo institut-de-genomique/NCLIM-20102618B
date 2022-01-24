@@ -2,7 +2,7 @@ library('matlab')
 source('axis_map0.R')
 source('hide_arctic.R')
 source('vioplot1.R')
-setwd('/env/cns/scratch_TaraOcean/Niches_models_Neogen/final_model_5/')
+
 coastline <- readShapeSpatial('ne_10m_coastline/ne_10m_coastline.shp')
 
 letters <- c('A', 'B', 'C', 'D', 'E', 'F')

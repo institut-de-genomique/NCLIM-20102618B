@@ -22,7 +22,7 @@ library("CDFt")
 library('plotrix')
 library('png')
 library('grid')
-setwd("/env/export/cns_n02_scratch/scratch_TaraOcean/Niches_models_Neogen/final_model_5/")
+
 source('CDFt_BIS.R')
 model0<-'model-mean'
 nvar <- 7
