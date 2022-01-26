@@ -16,7 +16,7 @@ library('ncdf4')
 library("CDFt")
 library('parallel')
 
-df <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+df <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 
 best_models <- read.table('best_selected_models.txt', header = T)
 best_models <- as.data.frame(best_models)
