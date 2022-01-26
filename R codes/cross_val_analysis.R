@@ -51,16 +51,16 @@ dev.off()
 fractions0 <- list(1:3, 4:6, 7:9, 10:16, 17:22, 23:27 )
 saveRDS(fractions0, 'fractions0.rds')
 
-df_init <- read_excel("Genocenoses_env_parameters_all_woa.xlsx")
+df_init <- read_excel("Provinces_env_parameters_all_woa.xlsx")
 to_remove <- readRDS('excluded_niches.rds')
-df <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+df <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 df$Fraction[df$Fraction=='43952']<-'5-20'
-df$labs <- paste(df$Fraction, df$Genocenose)
+df$labs <- paste(df$Fraction, df$Province)
 df$labs0 <- labs[match(df$labs, labs1)]
 
-df_init$id <- paste(df_init$Fraction, df_init$Genocenose, sep='_')
+df_init$id <- paste(df_init$Fraction, df_init$Province, sep='_')
 df_init$Fraction[df_init$Fraction=='43952']<-'5-20'
-df_init$labs <- paste(df_init$Fraction, df_init$Genocenose)
+df_init$labs <- paste(df_init$Fraction, df_init$Province)
 df_init$labs0 <- labs[match(df_init$labs, labs1)]
 df_init <- df_init[df_init$Fraction!='all',]
 
