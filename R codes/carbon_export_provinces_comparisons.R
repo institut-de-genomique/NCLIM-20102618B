@@ -1,8 +1,8 @@
 source('vioplot1.R')
 
-data_prov <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+data_prov <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 data_prov$Fraction[data_prov$Fraction=='43952'] <- '5-20'
-data_prov$lab <- paste(data_prov$Fraction, data_prov$Genocenose, sep='_')
+data_prov$lab <- paste(data_prov$Fraction, data_prov$Province, sep='_')
 to_remove <- readRDS('excluded_niches.rds')
 data_prov <- data_prov[!(data_prov$lab %in% to_remove),]
 valids <- readRDS('valids.rds')
@@ -10,7 +10,7 @@ data_prov <- data_prov[data_prov$lab %in% valids,]
 stats_prov <- unique(data_prov$Station)
 frcs <- unique(data_prov$Fraction)
 letters<- c('A', 'C', 'E', 'F', 'B', 'D')
-data_prov$prov <- paste(letters[match(data_prov$Fraction, frcs)], data_prov$Genocenose, sep='')
+data_prov$prov <- paste(letters[match(data_prov$Fraction, frcs)], data_prov$Province, sep='')
 data_prov$stat <- as.numeric(sapply(data_prov$Station, FUN = function(x){strsplit(x, '_')[[1]][1]}))
 col_prov <- read.table('color_provinces.txt', header = T)
 
@@ -26,7 +26,7 @@ init_vec <- function(){
   names(comps_ca)<- 'carb'
   names(comps_ca$carb) <- frcs
   for (frac in frcs){
-    for (p in sort(unique(data_prov$Genocenose[data_prov$Fraction==frac]))){
+    for (p in sort(unique(data_prov$Province[data_prov$Fraction==frac]))){
       pr <- paste(letters[match(frac, frcs)], p,sep='')
       comps_ca[['carb']][[frac]][[pr]] <- rep(NA, length(nas))
     }
@@ -49,7 +49,7 @@ for (frac in frcs){
     #print(summary(an))
     u<-pairwise.wilcox.test(dt0[[n]], dt0$prov, p.adjust.method = 'BH')$p.value
     dta <- list()
-    for (p in sort(unique(dt0$Genocenose))){
+    for (p in sort(unique(dt0$Province))){
       pr <- paste(letters[match(frac, frcs)], p,sep='')
       print(pr)
       save_dt[[co]] <- append(save_dt[[co]], median(dt0[[n]][dt0$prov==pr]))
