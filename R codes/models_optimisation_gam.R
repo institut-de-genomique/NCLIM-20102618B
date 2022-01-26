@@ -127,7 +127,7 @@ best_models_gam <- function(id){
   df1 <- df1[!is.na(df1$Province),]
   
   df2 <- df1
-  df2$Province<- as.integer(df2$Province == k)
+  df2$Province <- as.integer(df2$Province == k)
   
   set.seed(42)
   df2 <- df2[sample(1:nrow(df2)),]

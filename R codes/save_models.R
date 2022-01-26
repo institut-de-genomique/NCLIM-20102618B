@@ -17,7 +17,7 @@ library('ncdf4')
 library("CDFt")
 library('parallel')
 
-df <- readRDS("Genocenoses_env_parameters_woa_scaled.rds")
+df <- readRDS("Provinces_env_parameters_woa_scaled.rds")
 
 best_models <- read.table('best_selected_models.txt', header = T)
 best_models <- as.data.frame(best_models)
@@ -35,13 +35,13 @@ count <- 1
 for (frac in fractions){
   fraction <- frac
   df1 <- df[df$Fraction== fraction,]
-  df1 <- df1[!is.na(df1$Genocenose),]
+  df1 <- df1[!is.na(df1$Province),]
   
   goods <- best_models$Gen[best_models$Fraction==fraction]
   for (k in goods)
     local({
       df2 <- df1
-      df2$Genocenose <- as.integer(df2$Genocenose == k)
+      df2$Province <- as.integer(df2$Province == k)
       df2 <- as.data.frame(df2)
       set.seed(42)
       df2 <- df2[sample(1:nrow(df2)),]
@@ -67,11 +67,11 @@ for (frac in fractions){
       if (best_models$ok_gam[count]==1){
           if (fraction!='0-0.2' & fraction != '43952'){
             set.seed(42)
-            gam_model <- mgcv::gam(Genocenose ~ s(T)   + s(NO3) + s(Fe) + s(Phos) + s(Si) + s(SI_NO3) + s(Sal), data = df2, family = 'binomial',
+            gam_model <- mgcv::gam(Province ~ s(T)   + s(NO3) + s(Fe) + s(Phos) + s(Si) + s(SI_NO3) + s(Sal), data = df2, family = 'binomial',
                                    mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6))
           } else{
             set.seed(42)
-            gam_model <- mgcv::gam(Genocenose ~ s(T, k=2) + s(NO3, k=2) + s(Fe, k=2) + s(Phos,k=2) + s(Si,k=2) + s(SI_NO3,k=2) + s(Sal,k=2), 
+            gam_model <- mgcv::gam(Province ~ s(T, k=2) + s(NO3, k=2) + s(Fe, k=2) + s(Phos,k=2) + s(Si,k=2) + s(SI_NO3,k=2) + s(Sal,k=2), 
                                    data = df2, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6))
           }
       } else{
@@ -79,14 +79,14 @@ for (frac in fractions){
       }
       models_gam[[count]] <<- gam_model
       set.seed(42)
-      nn_model <- nnet::nnet(nnet::class.ind(df2$Genocenose) ~ T  + Sal + Si + NO3 + Phos  + Fe  + SI_NO3, data = df2, softmax=T,
+      nn_model <- nnet::nnet(nnet::class.ind(df2$Province) ~ T  + Sal + Si + NO3 + Phos  + Fe  + SI_NO3, data = df2, softmax=T,
                                size=best_models$size_nn[best_models$Fraction==fraction & best_models$Gen==k], 
                                decay=best_models$decay_nn[best_models$Fraction==fraction & best_models$Gen==k],
                                maxit=best_models$mxit_nn[best_models$Fraction==fraction & best_models$Gen==k])
       models_nn[[count]] <<- nn_model
-      df2$Genocenose <- as.factor(df2$Genocenose)
+      df2$Province <- as.factor(df2$Province)
       set.seed(42)
-      rf_model <- randomForest::randomForest(data=df2[,variables], x = df2[,variables], y=df2$Genocenose,importance=T, proximity =T, 
+      rf_model <- randomForest::randomForest(data=df2[,variables], x = df2[,variables], y=df2$Province,importance=T, proximity =T, 
                                              mtry=best_models$mtry_rf[best_models$Fraction==fraction & best_models$Gen==k], 
                                              ntree=best_models$ntree_rf[best_models$Fraction==fraction & best_models$Gen==k])
       models_rf[[count]] <<- rf_model

@@ -14,7 +14,7 @@ data_prov$prov <- paste(letters[match(data_prov$Fraction, frcs)], data_prov$Prov
 data_prov$stat <- as.numeric(sapply(data_prov$Station, FUN = function(x){strsplit(x, '_')[[1]][1]}))
 col_prov <- read.table('color_provinces.txt', header = T)
 
-hydro <- read.table('guidi_carbon_export.txt', header = T, sep='\t')
+hydro <- read.table('hydrofull_for_margaux.txt', header = T, sep='\t')
 
 nas <- c('POC','PIC','flux500m', 'flux200m' )
 for (n in nas){

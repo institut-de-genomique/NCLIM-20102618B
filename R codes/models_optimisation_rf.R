@@ -18,7 +18,7 @@ library('randomForest')
 library('mgcv')
 library('nnet')
 
-df <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+df <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 fractions <- c('180-2000', '20-180', '43952','0.8-5','0.22-3', '0-0.2')
 
 # rf optimisation grid: space of parameters tested
@@ -29,11 +29,11 @@ best_models_rf <- function(id){
   optimisation_rf <- function(i, rfGrid, variables){
     flag <- TRUE
     rf_model <- NULL  
-    df2$Genocenose <- as.factor(df2$Genocenose)
+    df2$Province <- as.factor(df2$Province)
     # Fitting the model on the whole dataset
     set.seed(42)
     possibleError <- tryCatch(
-      rf_model <- randomForest::randomForest(data=df2[,variables], x = df2[,variables], y=df2$Genocenose,importance=T, proximity =T, mtry=rfGrid[i,1], ntree = rfGrid[i,2]),
+      rf_model <- randomForest::randomForest(data=df2[,variables], x = df2[,variables], y=df2$Province,importance=T, proximity =T, mtry=rfGrid[i,1], ntree = rfGrid[i,2]),
       error=function(e) flag <- FALSE
     )
     # Performing 30 cross-validations to calculate the mean AUC (area under ROC curve) which is the parameter we chose to optimize
@@ -44,10 +44,10 @@ best_models_rf <- function(id){
       cv_rf <- function(sample, i){
         df3 <- df2[sample,]
         set.seed(42)
-        df3$Genocenose <- as.factor(df3$Genocenose)
-        rf_model_cv <- randomForest::randomForest(data=df3[,variables], x = df3[,variables], y=df3$Genocenose,importance=T, proximity =T, mtry=rfGrid[i,1], ntree = rfGrid[i,2])
+        df3$Province <- as.factor(df3$Province)
+        rf_model_cv <- randomForest::randomForest(data=df3[,variables], x = df3[,variables], y=df3$Province,importance=T, proximity =T, mtry=rfGrid[i,1], ntree = rfGrid[i,2])
         preds <- stats::predict(rf_model_cv, df2[!(c(1:nrow(df2)) %in% sample),variables], type='class')
-        d <- cbind(as.numeric(df2$Genocenose[!(c(1:nrow(df2)) %in% sample)]), as.numeric(preds)-1)
+        d <- cbind(as.numeric(df2$Province[!(c(1:nrow(df2)) %in% sample)]), as.numeric(preds)-1)
         pres <- d[d[,1]==1, 2]
         abs <- d[d[,1]==0, 2]
         sens <- sum(pres)/(sum(pres)+(length(pres)-sum(pres)))
@@ -61,7 +61,7 @@ best_models_rf <- function(id){
       
       set.seed(42)
       samples_list <- rep(list(), 30)
-      df2$Genocenose <- as.numeric(levels(df2$Genocenose))[df2$Genocenose]
+      df2$Province <- as.numeric(levels(df2$Province))[df2$Province]
       for (u in 1:30){
         df3<-NULL
         while (sum(df3[,3], na.rm = T) < 2 | sum(df3[,3], na.rm = T) == sum(df2[,3], na.rm = T)){
@@ -84,7 +84,7 @@ best_models_rf <- function(id){
       TSSs <- mean(tss_list, na.rm=T)
       AUCs <- mean(auc_list, na.rm=T)
       CORs <- mean(cor_list, na.rm=T)
-      rmse1 <- Metrics::rmse(test3[!is.na(test3)], as.numeric(df2$Genocenose[!is.na(test3)]))
+      rmse1 <- Metrics::rmse(test3[!is.na(test3)], as.numeric(df2$Province[!is.na(test3)]))
     } else{
       TSSs <- NA
       AUCs <- NA
@@ -96,10 +96,10 @@ best_models_rf <- function(id){
   fraction <- strsplit(id, '_')[[1]][1]
   k <- as.integer(strsplit(id, '_')[[1]][2])
   df1 <- df[df$Fraction== fraction,]
-  df1 <- df1[!is.na(df1$Genocenose),]
+  df1 <- df1[!is.na(df1$Province),]
   
   df2 <- df1
-  df2$Genocenose <- as.integer(df2$Genocenose == k)
+  df2$Province <- as.integer(df2$Province == k)
   
   set.seed(42)
   df2 <- df2[sample(1:nrow(df2)),]

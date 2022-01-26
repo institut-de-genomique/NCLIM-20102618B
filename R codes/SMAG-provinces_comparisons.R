@@ -51,9 +51,9 @@ stat_SMAGs_all <- mapply(stat_SMAGs,FUN = extract_stat)
 colnames(data_SMAGs) <- c('SMAG', stat_SMAGs_all)
 colnames(perc_smags) <- c('SMAG', stat_SMAGs_all)
 
-data_prov <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+data_prov <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 data_prov$Fraction[data_prov$Fraction=='43952'] <- '5-20'
-data_prov$lab <- paste(data_prov$Fraction, data_prov$Genocenose, sep='_')
+data_prov$lab <- paste(data_prov$Fraction, data_prov$Province, sep='_')
 to_remove <- readRDS('excluded_niches.rds')
 data_prov <- data_prov[!(data_prov$lab %in% to_remove),]
 valids <- readRDS('valids.rds')
@@ -139,7 +139,7 @@ for (fra in fracs){
   labs <- NULL
   for (gp in unique(df_frac$lab)){
     occ_vec <- as.numeric(df_frac$lab==gp)
-    num <- df_frac$Genocenose[df_frac$lab==gp][1]
+    num <- df_frac$Province[df_frac$lab==gp][1]
     jacc_vec <- apply(dsm0, 1,FUN =  jaccard_index, occ=occ_vec)
     perc_vec <- apply(dsm0, 1,FUN =  perc_stations, occ=occ_vec)
     # if (type=='SMAGs'){

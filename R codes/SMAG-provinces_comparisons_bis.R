@@ -51,9 +51,9 @@ stat_SMAGs_all <- mapply(stat_SMAGs,FUN = extract_stat)
 colnames(data_SMAGs) <- c('SMAG', stat_SMAGs_all)
 colnames(perc_smags) <- c('SMAG', stat_SMAGs_all)
 
-data_prov <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+data_prov <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 data_prov$Fraction[data_prov$Fraction=='43952'] <- '5-20'
-data_prov$lab <- paste(data_prov$Fraction, data_prov$Genocenose, sep='_')
+data_prov$lab <- paste(data_prov$Fraction, data_prov$Province, sep='_')
 to_remove <- readRDS('excluded_niches.rds')
 data_prov <- data_prov[!(data_prov$lab %in% to_remove),]
 valids <- readRDS('valids.rds')
@@ -105,7 +105,7 @@ if (type=='MAGprok'){
 }
 letters <- c('A', 'B', 'C', 'D', 'E', 'F')
 fractions <- c('0-0.2', '0.22-3', '0.8-5', '5-20', '20-180', '180-2000')
-data_prov$prov <- paste(letters[match(data_prov$Fraction, fractions)], data_prov$Genocenose, sep='')
+data_prov$prov <- paste(letters[match(data_prov$Fraction, fractions)], data_prov$Province, sep='')
 
 tests_func <- function(fracs, grouping, name){
   final_data <- NULL
@@ -153,7 +153,7 @@ tests_func <- function(fracs, grouping, name){
       dsm0_ab_ty <- dsm0_ab[ty_mags==ty,]
       for (gp in unique(df_frac$prov)){
         occ_vec <- as.numeric(df_frac$prov==gp)
-        num <- df_frac$Genocenose[df_frac$prov==gp][1]
+        num <- df_frac$Province[df_frac$prov==gp][1]
         if (!is.null(dim(dsm0_ab_ty))){
           dsm0_ab_ty_p <- dsm0_ab_ty[,occ_vec==1]
           fin_vec <- apply(dsm0_ab_ty_p, 2, sum)

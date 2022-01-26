@@ -92,18 +92,18 @@ colnames(pred_2090_list_nc) <- colnames(pred_2006_list)
 stats <- readRDS('new_stations_1deg.rds')
 colnames(stats)<- c('Lat', 'Long')
 stats <- as.data.frame(stats)
-df <- readRDS('Genocenoses_env_parameters_woa.rds')
+df <- readRDS('Provinces_env_parameters_woa.rds')
 frac <- '180-2000'
 clusts <- c(5, 8)
 # for(clust in clusts){
 #   df1 <-df[df$Fraction==frac,]
-#   df1$Genocenose <- as.numeric(df1$Genocenose==clust)+1
+#   df1$Province <- as.numeric(df1$Province==clust)+1
 #   colors <- c('red','green' )
 #   pdf(family="Helvetica",paste(frac,'_', clust,'.pdf', sep=''),width=10,height=4.065)
 #   par(mar=c(0,0,0,0))
 #   maps::map(database="world",fill=T,col="grey80",border="gray80",xpd=TRUE)
 #   plot(coastline,lwd=0.0475, col='black', add=T)
-#   points(df1$Long, df1$Lat, col=colors[df1$Genocenose], pch=19, cex=20)
+#   points(df1$Long, df1$Lat, col=colors[df1$Province], pch=19, cex=20)
 #   axis_map()
 #   dev.off()
 # }

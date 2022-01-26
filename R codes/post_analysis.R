@@ -66,7 +66,7 @@ hist(x2, breaks=seq(0,5000, 50), add=T,col=scales::alpha("red", 0.5),
  #    border=scales::alpha('red', 0.5))
 dev.off()
 
-df <- readRDS('Genocenoses_env_parameters_woa.rds')
+df <- readRDS('Provinces_env_parameters_woa.rds')
 
 Fractions = c('180-2000', '20-180', '43952', '0.8-5', '0.22-3', '0-0.2')
 Fractions1 = c('180-2000', '20-180', '5-20', '0.8-5', '0.22-3', '0-0.2')
@@ -436,7 +436,7 @@ shift_map <- function(shifts, name_pdf){
 shift_map(DS, 'shifts_map.pdf')
 shift_map(DS1, 'shifts_map_all.pdf') 
 # for (frac in Fractions){
-#   colors = colorRampPalette(RColorBrewer::brewer.pal(11,"Spectral"))(max(df$Genocenose[df$Fraction==frac], na.rm = T))
+#   colors = colorRampPalette(RColorBrewer::brewer.pal(11,"Spectral"))(max(df$Province[df$Fraction==frac], na.rm = T))
 #   for (mod in models){
 #     pdf(family="Helvetica",file = paste('shifts_', mod,'_',frac, '_com.pdf', sep =''), width=15,height=10)
 #     par(mfrow=c(2,3))

@@ -38,7 +38,7 @@ N <- dim(best_models)[1]
 black_caspien <- expand.grid(seq(28.5, 60.5, 1),seq(37.5, 48.5, 1))
 med_sea <- expand.grid(seq(-2.5, 35.5, 1),seq(30.5, 45.5, 1))
 closed_sea <- rbind(black_caspien, med_sea)
-df <- readRDS('Genocenoses_env_parameters_woa.rds')
+df <- readRDS('Provinces_env_parameters_woa.rds')
 f2006 = ncdf4::nc_open(paste('all_7_mon_',model0,'_rcp85_200601_201512_clim.nc',sep=''))
 f2090 = ncdf4::nc_open(paste('all_7_mon_',model0,'_rcp85_209001_209912_clim.nc',sep=''))
 i =1

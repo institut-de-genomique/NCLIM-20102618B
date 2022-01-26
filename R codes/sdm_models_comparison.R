@@ -22,7 +22,7 @@ library('randomForest')
 library('mgcv')
 library('nnet')
 
-df <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+df <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 cambria <- readRDS('cambria.rds')
 fractions <- c('180-2000', '20-180', '43952','0.8-5','0.22-3', '0-0.2')
 variables <- c(6:11,13)
@@ -40,10 +40,10 @@ indexes <- NULL
 count <-1
 for (fraction in fractions){
   df1 <- df[df$Fraction== fraction,]
-  df1 <- df1[!is.na(df1$Genocenose),]
+  df1 <- df1[!is.na(df1$Province),]
   for (k in best_models$Gen[best_models$Fraction==fraction]){
     df2 <- df1
-    df2$Genocenose <- as.integer(df2$Genocenose == k)
+    df2$Province <- as.integer(df2$Province == k)
     df2 <- df2[sample(1:nrow(df2)),]
     df2 <- as.data.frame(df2)
     for (i in 6:14){

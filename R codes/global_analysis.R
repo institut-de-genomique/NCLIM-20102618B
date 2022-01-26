@@ -81,7 +81,7 @@ N <- dim(best_models)[1]
 row.names(best_models)<-c(1:N)
 fractions0 <- unique(best_models$Fraction)
 
-df <- readRDS("Genocenoses_env_parameters_woa.rds")
+df <- readRDS("Provinces_env_parameters_woa.rds")
 variables <- c(6:11,13)
 
 color1 = colorRampPalette(c("cyan", "dark blue"))(13)

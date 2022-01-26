@@ -31,7 +31,7 @@ pred_rf <- function(model, newdata)  {
   return(results)
 }
 
-df <- readRDS('Genocenoses_env_parameters_woa_scaled.rds')
+df <- readRDS('Provinces_env_parameters_woa_scaled.rds')
 best_models <- read.table('best_selected_models.txt', header = T)
 best_models <- as.data.frame(best_models)
 n_mods <- dim(best_models)[1]
@@ -43,9 +43,9 @@ for (j in 1:n_mods){
   fraction <- best_models$Fraction[j]
   k=best_models$Gen[j]
   df1 <- df[df$Fraction== fraction,]
-  df1 <- df1[!is.na(df1$Genocenose),]
+  df1 <- df1[!is.na(df1$Province),]
   df2 <- df1
-  df2$Genocenose <- as.integer(df2$Genocenose == k)
+  df2$Province <- as.integer(df2$Province == k)
   df2 <- as.data.frame(df2)
   df2 <- df2[sample(1:nrow(df2)),]
   for (i in 6:14){
@@ -57,7 +57,7 @@ for (j in 1:n_mods){
   nn_model = models_nn[[j]]
   
   if (!is.na(bt_model[1])){
-    exp_bt <- explain(bt_model, data = df2[, variables], y=df2$Genocenose,
+    exp_bt <- explain(bt_model, data = df2[, variables], y=df2$Province,
                        predict_function = pred_bt)
     imp_bt <- feature_importance(exp_bt, loss_function = loss_root_mean_square)
     rel_inf_bt<- imp_bt$dropout_loss[2:(N+1)]*100/sum(imp_bt$dropout_loss[2:(N+1)])
@@ -66,7 +66,7 @@ for (j in 1:n_mods){
     rel_inf_bt <- rep(NA, N)
   }
   if (!is.na(gam_model[1])){
-    exp_gam <- explain(gam_model, data = df2[, variables], y=df2$Genocenose,
+    exp_gam <- explain(gam_model, data = df2[, variables], y=df2$Province,
                       predict_function = pred_gam)
     imp_gam <- feature_importance(exp_gam, loss_function = loss_root_mean_square)
     rel_inf_gam <- imp_gam$dropout_loss[2:(N+1)]*100/sum(imp_gam$dropout_loss[2:(N+1)])
@@ -74,9 +74,9 @@ for (j in 1:n_mods){
   } else{
     rel_inf_gam <- rep(NA, N)
   }
-  exp_rf <- explain(rf_model, data = df2[, variables], y=df2$Genocenose,
+  exp_rf <- explain(rf_model, data = df2[, variables], y=df2$Province,
                     predict_function = pred_rf)
-  exp_nn <- explain(nn_model, data = df2[, variables], y=df2$Genocenose,
+  exp_nn <- explain(nn_model, data = df2[, variables], y=df2$Province,
                     predict_function = pred_nn)
   
   imp_rf <- feature_importance(exp_rf, loss_function = loss_root_mean_square)
