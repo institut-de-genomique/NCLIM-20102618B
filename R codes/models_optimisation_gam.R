@@ -20,25 +20,25 @@ library('randomForest')
 library('mgcv')
 library('nnet')
 
-df <- readRDS("Genocenoses_env_parameters_woa_scaled.rds")
+df <- readRDS("Provinces_env_parameters_woa_scaled.rds")
 fractions <- c('180-2000', '20-180', '43952','0.8-5','0.22-3', '0-0.2')
 
 best_models_gam <- function(id){
   optimisation_gam <- function(i, variables){
     gam_model <- NULL 
     flag <- TRUE
-    df2$Genocenose <- as.factor(df2$Genocenose)
+    df2$Province <- as.factor(df2$Province)
     # For size fraction '0-0.2' and '5-20' ('43952'),
     # the number of splined is fixed to 2 per parameters otherwise the model would have more parameters than observations
     set.seed(42)
     if (fraction != '0-0.2' & fraction!='43952'){
       possibleError <- tryCatch(
-        gam_model <- mgcv::gam(Genocenose ~ s(T)   + s(NO3) + s(Fe) + s(Phos) + s(Si) + s(SI_NO3) + s(Sal), data = df2, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
+        gam_model <- mgcv::gam(Province ~ s(T)   + s(NO3) + s(Fe) + s(Phos) + s(Si) + s(SI_NO3) + s(Sal), data = df2, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
         error=function(e) flag <- FALSE
       )
     } else{
       possibleError <- tryCatch(
-        gam_model <- mgcv::gam(Genocenose ~ s(T, k=2)   + s(NO3, k=2) + s(Fe, k=2) + s(Phos,k=2) + s(Si,k=2) + s(SI_NO3,k=2) + s(Sal,k=2), data = df2, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
+        gam_model <- mgcv::gam(Province ~ s(T, k=2)   + s(NO3, k=2) + s(Fe, k=2) + s(Phos,k=2) + s(Si,k=2) + s(SI_NO3,k=2) + s(Sal,k=2), data = df2, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
         error=function(e) flag <- FALSE
       )
     }
@@ -48,18 +48,18 @@ best_models_gam <- function(id){
       cv_gam <- function(sample){
         df3 <- df2[sample,]
         set.seed(42)
-        df3$Genocenose <- as.factor(df3$Genocenose)
-        print(sum(as.numeric(df3$Genocenose)-1))
+        df3$Province <- as.factor(df3$Province)
+        print(sum(as.numeric(df3$Province)-1))
         flag <- TRUE
         gam_model_cv <- NULL
         if (fraction != '0-0.2' & fraction != '43952'){
           possibleError <- tryCatch(
-            gam_model_cv <- mgcv::gam(Genocenose ~ s(T)   + s(NO3) + s(Fe) + s(Phos) + s(Si) + s(SI_NO3) + s(Sal), data = df3, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
+            gam_model_cv <- mgcv::gam(Province ~ s(T)   + s(NO3) + s(Fe) + s(Phos) + s(Si) + s(SI_NO3) + s(Sal), data = df3, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
             error=function(e) flag <- FALSE
           )
         } else{
           possibleError <- tryCatch(
-            gam_model_cv <- mgcv::gam(Genocenose ~ s(T, k=2)   + s(NO3, k=2) + s(Fe, k=2) + s(Phos,k=2) + s(Si,k=2) + s(SI_NO3,k=2) + s(Sal,k=2), data = df3, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
+            gam_model_cv <- mgcv::gam(Province ~ s(T, k=2)   + s(NO3, k=2) + s(Fe, k=2) + s(Phos,k=2) + s(Si,k=2) + s(SI_NO3,k=2) + s(Sal,k=2), data = df3, family = 'binomial',mehtod='ML', optimizer = c('outer', 'newton'), control = mgcv::gam.control(epsilon = 10^-6)),
             error=function(e) flag <- FALSE
           )
         }
@@ -67,7 +67,7 @@ best_models_gam <- function(id){
           preds <- mgcv::predict.gam(gam_model_cv, df2[!(c(1:nrow(df2)) %in% sample),variables], type='link')
           preds[preds>0]=1
           preds[preds<0]=0
-          d <- cbind(as.numeric(df2$Genocenose[!(c(1:nrow(df2)) %in% sample)]), as.numeric(preds)-1)
+          d <- cbind(as.numeric(df2$Province[!(c(1:nrow(df2)) %in% sample)]), as.numeric(preds)-1)
           pres <- d[d[,1]==1, 2]
           abs <- d[d[,1]==0, 2]
           sens <- sum(pres)/(sum(pres)+(length(pres)-sum(pres)))
@@ -86,7 +86,7 @@ best_models_gam <- function(id){
       
       set.seed(42)
       samples_list <- rep(list(), 30)
-      df2$Genocenose <- as.numeric(levels(df2$Genocenose))[df2$Genocenose]
+      df2$Province <- as.numeric(levels(df2$Province))[df2$Province]
       for (u in 1:30){
         df3<-NULL
         while (sum(df3[,3], na.rm = T) < 2 | sum(df3[,3], na.rm = T) == sum(df2[,3], na.rm = T)){
@@ -115,7 +115,7 @@ best_models_gam <- function(id){
       rmse1 <- NA
     }
     if (!is.null(gam_model)){
-      rmse1 <- Metrics::rmse(test3[!is.na(test3)], as.numeric(df2$Genocenose[!is.na(test3)]))
+      rmse1 <- Metrics::rmse(test3[!is.na(test3)], as.numeric(df2$Province[!is.na(test3)]))
     } else{
       rmse1<- NA
     }
@@ -124,10 +124,10 @@ best_models_gam <- function(id){
   fraction <- strsplit(id, '_')[[1]][1]
   k <- as.integer(strsplit(id, '_')[[1]][2])
   df1 <- df[df$Fraction== fraction,]
-  df1 <- df1[!is.na(df1$Genocenose),]
+  df1 <- df1[!is.na(df1$Province),]
   
   df2 <- df1
-  df2$Genocenose <- as.integer(df2$Genocenose == k)
+  df2$Province<- as.integer(df2$Province == k)
   
   set.seed(42)
   df2 <- df2[sample(1:nrow(df2)),]
