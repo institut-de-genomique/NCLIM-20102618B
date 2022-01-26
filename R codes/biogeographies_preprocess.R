@@ -42,14 +42,14 @@ grd_bio <- expand.grid(lat=lt, lon=lo)
 grd_bio$biome <- biomes
 grd_bio$cell <- paste(grd_bio$lat, grd_bio$lon, sep='_')
 
-reyg_bgcp19 <- read.csv2('Reygondeau/BGCP_2019_REYGONDEAU.csv', header = T, sep=',')
+reyg_bgcp19 <- read.csv2('BGCP_and_Biomes/BGCP_2019_REYGONDEAU.csv', header = T, sep=',')
 reyg_bgcp19$cell <- paste(reyg_bgcp19$Latitude, reyg_bgcp19$Longitude, sep='_')
 reyg_bgcp19$BGCP[is.nan(reyg_bgcp19$BGCP)]<-NA
 
-reyg_bgcp <- read.csv2('Reygondeau/PROVINCE_REYGONDEAU.csv', header = F, sep = ',')
+reyg_bgcp <- read.csv2('BGCP_and_Biomes/PROVINCE_REYGONDEAU.csv', header = F, sep = ',')
 reyg_bgcp_vec <- as.vector(as.matrix(reyg_bgcp))
 reyg_bgcp_vec[is.nan(reyg_bgcp_vec)]<-NA
-reyg_bio <- read.csv2('Reygondeau/BIOME_REYGONDEAU.csv', header = F, sep = ',')
+reyg_bio <- read.csv2('BGCP_and_Biomes/BIOME_REYGONDEAU.csv', header = F, sep = ',')
 reyg_bio_vec <- as.vector(as.matrix(reyg_bio))
 reyg_bio_vec[is.nan(reyg_bio_vec)]<-NA
 grd_bio$reyg_bio <- reyg_bio_vec

@@ -53,8 +53,8 @@ lo <- ncvar_get(test, 'lon')
 coastline <- readShapeSpatial('ne_10m_coastline/ne_10m_coastline.shp')
 antarctic_fronts <- readShapeSpatial('ant_fronts/antarctic_circumpolar_current_fronts.shp')
 BGCP_shp <- readShapeSpatial('longhurst_v4_2010/Longhurst_world_v4_2010.shp')
-reyg_bgcp <- as.matrix(read.csv2('Reygondeau/PROVINCE_REYGONDEAU.csv', header = F, sep = ','))
-reyg_bio <- as.matrix(read.csv2('Reygondeau/BIOME_REYGONDEAU.csv', header = F, sep = ','))
+reyg_bgcp <- as.matrix(read.csv2('BGCP_and_Biomes/PROVINCE_REYGONDEAU.csv', header = F, sep = ','))
+reyg_bio <- as.matrix(read.csv2('BGCP_and_Biomes/BIOME_REYGONDEAU.csv', header = F, sep = ','))
 reyg_bgcp19_1 <-as.matrix(readRDS('BGCP_2019_REYGONDEAU_mat_1.rds'))
 #reyg_bgcp[is.nan(reyg_bgcp)]<-0
 reyg_bio[is.nan(reyg_bio)]<-0
