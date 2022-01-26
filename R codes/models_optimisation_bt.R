@@ -20,7 +20,7 @@ library('randomForest')
 library('mgcv')
 library('nnet')
 
-df <- readRDS("Genocenoses_env_parameters_woa_scaled.rds")
+df <- readRDS("Provinces_env_parameters_woa_scaled.rds")
 fractions <- c('180-2000', '20-180', '43952','0.8-5','0.22-3', '0-0.2')
 
 
@@ -74,7 +74,7 @@ best_models_bt <- function(id){
           preds <- stats::predict(bt_model_cv, df2[!(c(1:nrow(df2)) %in% sample),variables], type='link', n.trees = bt_model_cv$gbm.call$best.trees)
           preds[preds>0]=1
           preds[preds<0]=0
-          d <- cbind(df2$Genocenose[!(c(1:nrow(df2)) %in% sample)], preds)
+          d <- cbind(df2$Province[!(c(1:nrow(df2)) %in% sample)], preds)
           pres <- d[d[,1]==1, 2]
           abs <- d[d[,1]==0, 2]
           sens <- sum(pres)/(sum(pres)+(length(pres)-sum(pres)))
@@ -118,7 +118,7 @@ best_models_bt <- function(id){
       rmse1 <- NA
     }
     if (!is.null(bt_model)){
-      rmse1 <- Metrics::rmse(test3[!is.na(test3)], df2$Genocenose[!is.na(test3)])
+      rmse1 <- Metrics::rmse(test3[!is.na(test3)], df2$Province[!is.na(test3)])
     } else{
       rmse1<- NA
     }
@@ -127,10 +127,10 @@ best_models_bt <- function(id){
   fraction <- strsplit(id, '_')[[1]][1]
   k <- as.integer(strsplit(id, '_')[[1]][2])
   df1 <- df[df$Fraction== fraction,]
-  df1 <- df1[!is.na(df1$Genocenose),]
+  df1 <- df1[!is.na(df1$Province),]
 
   df2 <- df1
-  df2$Genocenose <- as.integer(df2$Genocenose == k)
+  df2$Province <- as.integer(df2$Province == k)
   
   set.seed(42)
   df2 <- df2[sample(1:nrow(df2)),]
