@@ -8,7 +8,8 @@ library('StatMeasures')
 
 
 cambria <- readRDS('cambria.rds')
-# Ind_fishery <- read.csv('CatchInd_2010_2014.csv', header = T)
+# Ind_fishery <- read.csv('CatchInd_2010_2014.csv', header = T) 
+# this file is availbale at https://data.imas.utas.edu.au/attachments/ff1274e1-c0ab-411b-a8a2-5a12eb27f2c0/CatchInd_2010_2014.csv
 # saveRDS(Ind_fishery, "CatchInd_2010_2014.rds")
 Ind_fishery <- readRDS("CatchInd_2010_2014.rds")
 Ind_fishery$Reported[is.na(Ind_fishery$Reported)]<-0
