@@ -117,6 +117,12 @@ for (cof in coffs){
     hide_arctic()
     axis_map0()
     dev.off()
+    pdf(paste('bray_curtis_legend_', colo[i],'.pdf', sep=''), width=10,height=4.065)
+    xmx <- 17
+    pnt <- cbind(x =c(0,2,2,0), y =c(0,50,50,0))
+    plot(0,0, col='white', xlim=c(0,xmx), ylim=c(0, 60), axes=FALSE, frame.plot=F, xlab = '', ylab='')
+    SDMTools::legend.gradient(pnt, set0, limits=c(0,1), title ='Bray curtis index' , cex=1)
+    dev.off()
     i=i+1
   }
 }
