@@ -1,11 +1,12 @@
 This file describes the pipeline of the ecological niches model study "Restructuring of genomic provinces of surface ocean 1 plankton under climate change" based on Biogeographies from Richter et al.
-Written by Paul Frémont
+Written by Paul FrÃ©mont
 Before running all commands (./*sh) ; do module load r/3.3.1 (terminal etna0.genoscope.cns.fr); some scripts are run on rstudio: module load rstudio/0.99.115.3
 R packages required:
 gbm; randomForest; mdcv; nnet; dismo; FactoMineR; factoextra; readxl; ggplot2;matlab; reshape2; gplots; plotly; stringr; caret; mapproj; mapplots; SDMTools; RColoBrewer; ncdf4; CDFt; plotrix; png; grid; DALEX; ggalluvial; stringr; isofor; parallel; scales; Rtsne; sm; scatterplot3d; imager; ingredients; VennDiagramm; tidygraph; ggraph; igraph; animation; VennDiagram
 
 The pipeline below allows to perform all analysis from the study. All data needed is in the directory so any of the program can be launched in any order to generate the figures. Some side analysis are also available in the folder other_analysis/ (to be moved in the main directory if performed)
 
+Start directly at point 2, the climate data is pre-generated in the data folder.
 1. Extract climatic data: WOA and ESM models
 	1.1 WOA (https://www.nodc.noaa.gov/OC5/woa13/woa13data.html)
 	done on ciclad.ipsl.jussieu.fr in the directory /data/pfremont/data/woa_month
